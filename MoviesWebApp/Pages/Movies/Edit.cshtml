@@ -1,0 +1,57 @@
+﻿@page
+@model MoviesWebApp.Pages.Movies.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<h1 class="text-center font1">Edit Movie Details</h1>
+<hr />
+<div class="row">
+
+    <div class="col-md-4">
+        <img src="~/images/movie.png" class="img-fluid" />
+    </div>
+    <div class="col-md-8">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Movie.Id" />
+            <div class="form-group">
+                <label asp-for="Movie.MovieName" class="control-label"></label>
+                <input asp-for="Movie.MovieName" class="form-control" />
+                <span asp-validation-for="Movie.MovieName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.Description" class="control-label"></label>
+                <textarea asp-for="Movie.Description" class="form-control"></textarea>
+                <span asp-validation-for="Movie.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.Rating" class="control-label"></label>
+                <input asp-for="Movie.Rating" class="form-control" />
+                <span asp-validation-for="Movie.Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.PlatformID" class="control-label"></label>
+                <select asp-for="Movie.PlatformID" class="form-control" asp-items="ViewBag.PlatformID"></select>
+                <span asp-validation-for="Movie.PlatformID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.DirectorID" class="control-label"></label>
+                <select asp-for="Movie.DirectorID" class="form-control" asp-items="ViewBag.DirectorID"></select>
+                <span asp-validation-for="Movie.DirectorID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.CategoryID" class="control-label"></label>
+                <select asp-for="Movie.CategoryID" class="form-control" asp-items="ViewBag.CategoryID"></select>
+                <span asp-validation-for="Movie.CategoryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update Movie Details" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

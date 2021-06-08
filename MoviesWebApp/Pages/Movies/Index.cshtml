@@ -1,0 +1,32 @@
+﻿@page
+@model MoviesWebApp.Pages.Movies.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1 class="text-center font1">All Movies</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-dark">Add New Movie</a>
+</p>
+<div class="row">
+    @foreach (var item in Model.Movie)
+    {
+        <div class="col-6">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h4 class="card-title">@item.MovieName</h4>                    
+                    <p><strong>Platform: </strong>@item.Platform.PlatformName</p>
+                    <p><strong>Genre: </strong>@item.Category.CategoryName</p>
+                    <p><strong>Director: </strong>@item.Director.DirectorName</p>
+                    <p><strong>Description: </strong>@item.Description</p>
+                    <p><strong>Rating: </strong>@item.Rating / 10</p>
+                </div>
+                <div class="card-footer">
+                    <a asp-page="./Edit" class="btn btn-secondary mr-2" asp-route-id="@item.Id">Edit</a>
+                    <a asp-page="./Delete" class="btn btn-warning" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

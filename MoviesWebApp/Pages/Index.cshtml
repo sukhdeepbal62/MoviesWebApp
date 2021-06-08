@@ -1,0 +1,42 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 font1">Entertain Hub</h1>
+</div>
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <div class="card w-100">
+            <center>
+                <img src="~/images/category.png" class="img-fluid">
+            </center>
+            <div class="card-body">
+                <a class="btn btn-dark btn-block" asp-page="/Categories/Index">View Categories</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card w-100">
+            <center>
+                <img src="~/images/director.png" class="img-fluid">
+            </center>
+            <div class="card-body">
+                <a class="btn btn-dark btn-block" asp-page="/Directors/Index">View Directors</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card w-100">
+            <center>
+                <img src="~/images/movie.png" class="img-fluid">
+            </center>
+            <div class="card-body">
+                <a class="btn btn-dark btn-block" asp-page="/Movies/Index">View Movies</a>
+            </div>
+        </div>
+    
+    </div>
+</div>

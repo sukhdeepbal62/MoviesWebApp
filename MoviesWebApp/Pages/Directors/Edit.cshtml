@@ -1,0 +1,33 @@
+﻿@page
+@model MoviesWebApp.Pages.Directors.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center font1">Edit Director Details</h1>
+<hr />
+<div class="row">
+
+    <div class="col-md-4">
+        <img src="~/images/director.png" class="img-fluid" />
+    </div>
+    <div class="col-md-8">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Director.Id" />
+            <div class="form-group">
+                <label asp-for="Director.DirectorName" class="control-label"></label>
+                <input asp-for="Director.DirectorName" class="form-control" />
+                <span asp-validation-for="Director.DirectorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update Director Details" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
